@@ -1,0 +1,43 @@
+@import './base.css';
+
+#app {
+  margin: 0 auto;
+  padding: 2rem;
+	padding-top: 80px;
+
+  font-weight: normal;
+}
+
+body {
+	background-color: whitesmoke;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+.navbar {
+	background-color: #19aae0;
+	opacity: 1;
+}
+
+.style-color {
+	color: #19aae0;
+	font-size: 2rem;
+}
+
+@media (hover: hover) {
+  /* a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  } */
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+}
