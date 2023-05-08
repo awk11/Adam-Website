@@ -1,5 +1,5 @@
 @import './base.css';
-
+/*TODO: finish styling*/
 #app {
   margin: 0 auto;
   padding: 2rem;
@@ -29,15 +29,3 @@ a,
 	font-size: 2rem;
 }
 
-@media (hover: hover) {
-  /* a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  } */
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-}

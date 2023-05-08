@@ -1,21 +1,20 @@
 <script setup>
-// import TheWelcome from '../components/TheWelcome.vue'
-// import Test from '../components/TestView.vue'
 import WelcomeChunk from '../components/WelcomeChunk.vue';
 import BiographyChunk from '../components/BiographyChunk.vue';
 import ExperienceChunk from '../components/ExperienceChunk.vue';
 import ResumeChunk from '../components/ResumeChunk.vue';
+import ProjectModal from '../components/project_items/ProjectModal.vue';
 </script>
 
 <template>
   <main>
-    <!-- <TheWelcome />
-		<Test /> -->
 		<WelcomeChunk id="welcome"/>
 		<BiographyChunk id="about"/>
 		<ExperienceChunk id="experience"/>
 		<ResumeChunk id="resume"/>
   </main>
+
+	<ProjectModal />
 </template>
 
 <style scoped>
