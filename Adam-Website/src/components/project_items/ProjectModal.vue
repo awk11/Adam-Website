@@ -1,17 +1,31 @@
 <script setup>
+import ProjectDetails from '../../scripts/projectDetails';
 import { portfolioStore } from '../../stores/store.js';
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+// import { Modal } from 'bootstrap/js/dist/modal.js'
 
 const store = portfolioStore();
 const MediaZoomed = ref(false);
+
+onMounted(() => {
+	// Add event listener to reset modal settings on close
+	document.getElementById('onload').addEventListener('hidden.bs.modal', HidingModal)
+})
+
 
 const modalDetails = computed(() => {
 	return store.getModalDetails();
 })
 
-function MediaZoom(){
+function MediaZoom() {
 	MediaZoomed.value = !MediaZoomed.value;
 }
+
+function HidingModal() {
+	MediaZoomed.value = false;
+	store.setProjectModalData(new ProjectDetails("{}"));
+}
+
 
 </script>
 
@@ -25,11 +39,9 @@ function MediaZoom(){
 							<div id="carouselControls" class="carousel slide">
 								<div class="carousel-inner" @click="MediaZoom">
 									<div v-for="(media, index) in modalDetails.mediaRefs" :key="index" class="carousel-item" :class="{ 'active': index === 0 }">
-										<div class="d-block w-100 h-100">
-											<video v-if="media.includes('.mp4')" controls><source :src="media" type="video/mp4">Your browser does not support the video tag. Sorry about that! Please try again in a more modern browser.</video>
-											<iframe v-else-if="media.includes('http')" width="650" height="360" :src="media" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-											<img v-else :src="media" class="d-block w-100 h-100" :alt="`${modalDetails.name} media ${index}`">
-										</div>
+										<video v-if="media.includes('.mp4')" class="d-block w-100 h-100" controls><source :src="media" type="video/mp4">Your browser does not support the video tag. Sorry about that! Please try again in a more modern browser.</video>
+										<iframe v-else-if="media.includes('http')" class="d-block w-100 h-100" width="650" height="360" :src="media" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										<img v-else :src="media" class="d-block w-100 h-100" :alt="`${modalDetails.name} media ${index}`">
 									</div>
 								</div>
 								<button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">

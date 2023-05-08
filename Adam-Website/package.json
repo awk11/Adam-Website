@@ -1,6 +1,7 @@
 {
   "name": "adam-website",
-  "version": "0.0.0",
+	"description": "Adam Kaufman's Personal Website",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "vite",

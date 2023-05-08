@@ -4,7 +4,7 @@ import ProjectDetails from '../scripts/projectDetails'
 
 export const portfolioStore = defineStore('portfolio', () => {
 	const modalDetails = ref(new ProjectDetails("{}"));
-	function openProjectModal(details) {
+	function setProjectModalData(details) {
 		if (details instanceof ProjectDetails) {
 			modalDetails.value = details;
 		}
@@ -15,5 +15,5 @@ export const portfolioStore = defineStore('portfolio', () => {
 	function getModalDetails() {
 		return modalDetails.value;
 	}
-  return { getModalDetails, openProjectModal };
+  return { getModalDetails, setProjectModalData };
 })

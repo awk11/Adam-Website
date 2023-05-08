@@ -6,22 +6,25 @@ import Modal from 'bootstrap/js/dist/modal.js'
 const props = defineProps({project: {type: Tile}, index: {type: Number}});
 
 function ShowModal() {
-	const store = portfolioStore()
+	
 	//TODO: Make REST call to get project details
 	let detailsJson = `{"name": "${props.project.name}", "description": "This is a test description", "media": ["/src/assets/AdamK.jpg", "/src/assets/modis.png"]}`;
-	//Create object with details and then call its display function to create the ProjectModal and add to DOM
+	
+	//Create object with details and then add to the store
 	let projDetails = new ProjectDetails(detailsJson);
-	console.log(`Showing modal for ${projDetails.name}`)
-	store.openProjectModal(projDetails)
-	const myModal = new Modal('#onload');
-	myModal.show();
+	const store = portfolioStore()
+	store.setProjectModalData(projDetails)
+
+	// Open the modal
+	const projModal = new Modal('#onload');
+	projModal.show();
 }
 
 </script>
 
 <template>
 	<div class="col-sm-3">
-		<div class="prj" @click="ShowModal()">
+		<div class="prj" @click="ShowModal">
 			<img class="normal" :src="props.project.normalImg" alt="" title="" width="250" height="250" />
 			<img class="onhover" :src="props.project.hoverImg" :alt="project.Name" :title="project.Name" width="250" height="250" />
 		</div>
