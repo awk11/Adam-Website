@@ -1,4 +1,18 @@
 <script setup>
+import { ref } from 'vue';
+import axios from 'axios'
+
+const resumeUrl = ref("");
+const loading = ref(true);
+
+axios.get("http://localhost:11001/getResume")
+	.then(response => {
+		resumeUrl.value = response.data["resumeUrl"];
+		loading.value = false;
+	})
+	.catch(error => {
+		console.error(error);
+	});
 
 </script>
 
@@ -6,7 +20,8 @@
 	<div>
 		<div class="container-fluid text-center">
 			<h2>Resume</h2>
-			<iframe src="https://drive.google.com/file/d/1_ZH956P1nSpmZVGzC5c0EbY1O13e2yOC/preview"></iframe>
+			<div v-if="loading" class="loading">Loading...</div>
+			<iframe v-else :src="resumeUrl"></iframe>
 		</div>
 	</div>
 </template>

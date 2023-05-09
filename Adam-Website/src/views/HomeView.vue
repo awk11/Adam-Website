@@ -22,7 +22,7 @@ import ProjectModal from '../components/project_items/ProjectModal.vue';
 #welcome {
 	background-color: #19aae0;
 	color: white;
-	padding: 100px 25px;
+	padding: 60px 50px;
 	font-family: Montserrat, sans-serif;
 	margin-bottom: 0;
 }
@@ -30,17 +30,19 @@ import ProjectModal from '../components/project_items/ProjectModal.vue';
 #about {
 	color: white; 
 	background-color: red;
+	padding: 60px 50px;
 }
 
 #experience {
 	color: white; 
 	background-color: green; 
-	min-height: 800px;
+	padding: 60px 50px;
 }
 
 #resume {
 	color: white; 
 	background-color: purple; 
+	padding: 60px 50px;
 }
 
 </style>

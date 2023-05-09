@@ -17,7 +17,6 @@ async function GetProjects(type) {
 			for (let tile of response.data["tiles"]) {
 				tiles.push(new Tile(tile["name"], tile["tileImage"], tile["hoverImage"], tile["skills"]))
 			}
-			console.log(tiles)
 			projTiles.value[type] = tiles;
 		})
 		.catch(error => {
@@ -35,7 +34,7 @@ async function GetProjects(type) {
 			<h4>Select a tile to learn more about a project. Enlarge or minimize a picture by clicking on it. If the site is slow/fails to load anything, I'm using the free subscription for azure to host it, so that's the cause.</h4>
 			<h4>Professional Work</h4>
 			<div class="row">
-				<div v-if="loading">Loading...</div>
+				<div v-if="loading" class="loading">Loading...</div>
 				<ProjectTile v-else v-for="(proj, i) in projTiles['Professional']" :key="i" :project="proj"/>
 			</div>
 			<!-- <h4>Web Development</h4>
