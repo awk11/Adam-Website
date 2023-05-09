@@ -1,23 +1,30 @@
 <script setup>
+import { ref } from 'vue';
 import Tile from '../../scripts/tile.js'
 import ProjectDetails from '../../scripts/projectDetails.js'
 import { portfolioStore } from '../../stores/store.js';
 import Modal from 'bootstrap/js/dist/modal.js'
-const props = defineProps({project: {type: Tile}, index: {type: Number}});
+import axios from 'axios'
+const props = defineProps({project: {type: Tile}});
 
 function ShowModal() {
-	
-	//TODO: Make REST call to get project details
-	let detailsJson = `{"name": "${props.project.name}", "description": "This is a test description", "media": ["/src/assets/AdamK.jpg", "/src/assets/modis.png"]}`;
-	
-	//Create object with details and then add to the store
-	let projDetails = new ProjectDetails(detailsJson);
-	const store = portfolioStore()
-	store.setProjectModalData(projDetails)
+	// Make REST call to get project details
+	axios.get('http://localhost:11001/projectData', {params: {name: props.project.name}})
+		.then(response => {
+			let detailsJson = new ProjectDetails(response.data);
 
-	// Open the modal
-	const projModal = new Modal('#onload');
-	projModal.show();
+			//Create object with details and then add to the store
+			let projDetails = new ProjectDetails(detailsJson);
+			const store = portfolioStore()
+			store.setProjectModalData(projDetails)
+
+			// Open the modal
+			const projModal = new Modal('#onload');
+			projModal.show();
+		})
+		.catch(error => {
+			console.error(error);
+		});
 }
 
 </script>

@@ -1,0 +1,21 @@
+{
+  "name": "node-server",
+  "version": "0.0.1",
+  "description": "Back-End Node Server for Adam Kaufman's Personal Website",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awk11/Adam-Website.git"
+  },
+  "author": "Adam Kaufman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awk11/Adam-Website/issues"
+  },
+  "homepage": "https://github.com/awk11/Adam-Website#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "express": "^4.18.2"
+  }
+}

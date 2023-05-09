@@ -1,0 +1,31 @@
+{
+	"projects": [
+		{
+			"name": "PAR Government 1",
+			"type": "Professional",
+			"description": "1 Lead developer in PAR's Intelligence and Readiness Operations group, I have contributed to and helped shape a variety of projects with a critical impact on both the company and its customers, ranging in size from small internal tech demos to large-scale dozen-plus organization efforts. Actively responsible for building and maintaining a diverse range of codebases across many projects, as well as leading and managing small teams from conception to production. Project focuses have included topics such as AI, media forensics, simulation, and more. This work includes UI development, API development, video/image manipulation, video game development, and many other fields of interest. Key tech includes Python, Docker, JavaScript.",
+			"tileImage": "/src/assets/modis.png",
+			"hoverImage": "/src/assets/modisTop.png",
+			"skillList": ["Python", "JavaScript", "Docker", "Leadership", "AI"],
+			"mediaList": ["/src/assets/modis.png", "/src/assets/AdamK.jpg"]
+		},
+		{
+			"name": "PAR Government 2",
+			"type": "Professional",
+			"description": "2 Lead developer in PAR's Intelligence and Readiness Operations group, I have contributed to and helped shape a variety of projects with a critical impact on both the company and its customers, ranging in size from small internal tech demos to large-scale dozen-plus organization efforts. Actively responsible for building and maintaining a diverse range of codebases across many projects, as well as leading and managing small teams from conception to production. Project focuses have included topics such as AI, media forensics, simulation, and more. This work includes UI development, API development, video/image manipulation, video game development, and many other fields of interest. Key tech includes Python, Docker, JavaScript.",
+			"tileImage": "/src/assets/modis.png",
+			"hoverImage": "/src/assets/modisTop.png",
+			"skillList": ["Python", "JavaScript", "Docker", "Leadership", "AI"],
+			"mediaList": ["/src/assets/AdamK.jpg", "/src/assets/modis.png"]
+		},
+		{
+			"name": "PAR Government 3",
+			"type": "Professional",
+			"description": "3 Lead developer in PAR's Intelligence and Readiness Operations group, I have contributed to and helped shape a variety of projects with a critical impact on both the company and its customers, ranging in size from small internal tech demos to large-scale dozen-plus organization efforts. Actively responsible for building and maintaining a diverse range of codebases across many projects, as well as leading and managing small teams from conception to production. Project focuses have included topics such as AI, media forensics, simulation, and more. This work includes UI development, API development, video/image manipulation, video game development, and many other fields of interest. Key tech includes Python, Docker, JavaScript.",
+			"tileImage": "/src/assets/modis.png",
+			"hoverImage": "/src/assets/modisTop.png",
+			"skillList": ["Python", "JavaScript", "Docker", "Leadership", "AI"],
+			"mediaList": ["/src/assets/modis.png", "/src/assets/AdamK.jpg"]
+		}
+	]
+}

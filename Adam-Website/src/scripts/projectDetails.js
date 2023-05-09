@@ -1,9 +1,8 @@
 class ProjectDetails {
 	constructor(detailsJson) {
-		let details = JSON.parse(detailsJson);
-		this.name = details["name"];
-		this.description = details["description"];
-		this.mediaRefs = details["media"];
+		this.name = detailsJson["name"];
+		this.description = detailsJson["description"];
+		this.mediaRefs = detailsJson["mediaRefs"];
 	}
 }
 

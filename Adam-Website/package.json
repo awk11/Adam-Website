@@ -1,6 +1,6 @@
 {
   "name": "adam-website",
-	"description": "Adam Kaufman's Personal Website",
+  "description": "Adam Kaufman's Personal Website",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.7",
+    "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
     "pinia": "^2.0.35",
