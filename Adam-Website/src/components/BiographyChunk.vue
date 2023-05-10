@@ -2,11 +2,11 @@
 import { ref } from 'vue';
 import axios from 'axios'
 
+const loading = ref(true);
 const bioBlurb = ref("");
 const interests = ref([]);
 const skills = ref([]);
 const contacts = ref({})
-const loading = ref(true);
 
 axios.get("http://localhost:11001/getBio")
 	.then(response => {
@@ -35,8 +35,7 @@ axios.get("http://localhost:11001/getBio")
 			<div class="row">
 				<div v-if="loading" class="loading">Loading...</div>
 				<div v-else class="col-sm-10">
-					<h4>
-						{{ bioBlurb }}
+					<h4 v-html="bioBlurb">
 					</h4>
 				</div>
 			</div>

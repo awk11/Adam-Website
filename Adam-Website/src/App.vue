@@ -37,6 +37,12 @@ function toggleNav () {
 		<a href="#top" title="To Top">
 			<span class="bi bi-chevron-double-up style-color"></span>
 		</a>
-		<p>&copy; Made by Adam Kaufman. Last updated on May 5<sup>th</sup>, 2023</p>
+		<p>&copy; Made by Adam Kaufman. Last updated on May 10<sup>th</sup>, 2023</p>
 	</footer>
 </template>
+
+<!-- <style scoped>
+.nav-link, .navbar-brand {
+	color: white;
+}
+</style> -->

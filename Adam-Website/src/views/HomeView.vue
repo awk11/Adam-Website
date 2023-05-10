@@ -17,7 +17,7 @@ import ProjectModal from '../components/project_items/ProjectModal.vue';
 	<ProjectModal />
 </template>
 
-<style scoped>
+<!-- <style scoped>
 
 #welcome {
 	background-color: #19aae0;
@@ -45,4 +45,4 @@ import ProjectModal from '../components/project_items/ProjectModal.vue';
 	padding: 60px 50px;
 }
 
-</style>
+</style> -->

@@ -2,8 +2,8 @@
 import { ref } from 'vue';
 import axios from 'axios'
 
-const resumeUrl = ref("");
 const loading = ref(true);
+const resumeUrl = ref("");
 
 axios.get("http://localhost:11001/getResume")
 	.then(response => {
@@ -26,9 +26,9 @@ axios.get("http://localhost:11001/getResume")
 	</div>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 	iframe {
 		width: 75%;
 		height: 480px;
 	}
-</style>
+</style> -->

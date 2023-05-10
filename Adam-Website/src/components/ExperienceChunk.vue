@@ -5,8 +5,8 @@ import Tile from '../scripts/tile.js';
 
 import axios from 'axios'
 
-const projTiles = ref({});
 const loading = ref(true);
+const projTiles = ref({});
 GetProjects("Professional");
 
 async function GetProjects(type) {

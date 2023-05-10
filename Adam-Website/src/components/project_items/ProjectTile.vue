@@ -40,8 +40,7 @@ function ShowModal() {
 	</div>
 </template>
 
-<style scoped>
-/* TODO: Move to SASS */
+<!-- <style scoped>
 .prj{
 	position: relative;
 	max-width: 250px;
@@ -77,4 +76,4 @@ function ShowModal() {
 .prj:hover > img.onhover {
 	opacity: 1;
 }
-</style>
+</style> -->

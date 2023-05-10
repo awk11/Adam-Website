@@ -65,8 +65,8 @@ function HidingModal() {
 	</div>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 .carousel-item img, video {
 	cursor: pointer;
 }
-</style>
+</style> -->
