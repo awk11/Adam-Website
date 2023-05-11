@@ -78,13 +78,16 @@ api.get('/projectData', (req, res) => {
 // #endregion
 
 // #region Get About Info
-// Gets the url for where my resume is hosted
-api.get('/getResume', (req, res) => {
-	console.log("Calling /getResume")
+
+// Gets info for welcome section
+api.get('/getWelcome', (req, res) => {
+	console.log("Calling /getWelcome")
 	res.header("Access-Control-Allow-Origin", "*");
 	fetchJsonData(path.join(__dirname, 'jsonDB/about.json'))
 	.then(data => {
-		res.send({"resumeUrl": data["resumeUrl"]});
+		res.send({
+			"welcomeMedia": data["welcomeMedia"]
+		});
 	});
 });
 
@@ -97,9 +100,20 @@ api.get('/getBio', (req, res) => {
 		res.send({
 			"bio": data["bio"],
 			"interests": data["interests"],
-			"skills": data["skills"],
+			"langs": data["langs"],
+			"software": data["software"],
 			"contacts": data["contacts"]
 		});
+	});
+});
+
+// Gets the url for where my resume is hosted
+api.get('/getResume', (req, res) => {
+	console.log("Calling /getResume")
+	res.header("Access-Control-Allow-Origin", "*");
+	fetchJsonData(path.join(__dirname, 'jsonDB/about.json'))
+	.then(data => {
+		res.send({"resumeUrl": data["resumeUrl"]});
 	});
 });
 

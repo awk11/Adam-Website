@@ -7,7 +7,10 @@ import Modal from 'bootstrap/js/dist/modal.js'
 import axios from 'axios'
 const props = defineProps({project: {type: Tile}});
 
+const loadingModal = ref(false);
+
 function ShowModal() {
+	loadingModal.value = true;
 	// Make REST call to get project details
 	axios.get('http://localhost:11001/projectData', {params: {name: props.project.name}})
 		.then(response => {
@@ -21,6 +24,7 @@ function ShowModal() {
 			// Open the modal
 			const projModal = new Modal('#onload');
 			projModal.show();
+			loadingModal.value = false;
 		})
 		.catch(error => {
 			console.error(error);
@@ -30,50 +34,17 @@ function ShowModal() {
 </script>
 
 <template>
-	<div class="col-sm-3">
-		<div class="prj" @click="ShowModal">
-			<img class="normal" :src="props.project.normalImg" alt="" title="" width="250" height="250" />
-			<img class="onhover" :src="props.project.hoverImg" :alt="project.Name" :title="project.Name" width="250" height="250" />
+	<div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12">
+		<div v-if="loadingModal" class="loading my-3 text-center">
+			<div class="spinner-border" role="status">
+				<span class="sr-only"></span>
+			</div>
+		</div>
+		<div v-else class="prj" @click="ShowModal">
+			<img class="normal" :src="props.project.normalImg" :alt="project.Name" :title="project.Name" />
+			<img class="onhover" :src="props.project.hoverImg" :alt="project.Name" :title="project.Name" />
 		</div>
 		<p><strong>{{ project.name }}</strong></p>
 		<p>{{ project.skills.join(', ') }}</p>
 	</div>
 </template>
-
-<!-- <style scoped>
-.prj{
-	position: relative;
-	max-width: 250px;
-	max-height: 250px;
-	margin: auto;
-	margin-bottom: 10px;
-}
-
-.prj img {
-	-webkit-transition: opacity .75s ease-in-out;
-	-moz-transition: opacity .75s ease-in-out;
-	-o-transition: opacity .75s ease-in-out;
-	transition: opacity .75s ease-in-out;
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
-	box-shadow: 0 1px 2px rgba(0, 5, 0, .075);
-}
-.prj img.normal {
-		position: relative;
-		margin: auto;
-		max-width: 250px;
-		max-height: 250px;
-}
-
-.prj img.onhover {
-		opacity: 0;
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		max-width: 250px;
-		max-height: 250px;
-}
-
-.prj:hover > img.onhover {
-	opacity: 1;
-}
-</style> -->

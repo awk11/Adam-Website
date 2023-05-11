@@ -1,6 +1,6 @@
 {
   "name": "node-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Back-End Node Server for Adam Kaufman's Personal Website",
   "main": "index.js",
   "repository": {

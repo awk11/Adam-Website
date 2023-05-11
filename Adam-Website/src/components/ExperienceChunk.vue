@@ -30,11 +30,15 @@ async function GetProjects(type) {
 <template>
 	<div>
 		<div class="container-fluid text-center">
-			<h2>Experience</h2>
-			<h4>Select a tile to learn more about a project. Enlarge or minimize a picture by clicking on it. If the site is slow/fails to load anything, I'm using the free subscription for azure to host it, so that's the cause.</h4>
+			<h3>Experience</h3>
+			<h5>Select a tile to learn more about a project. Enlarge or minimize a picture by clicking on it. If the site is slow/fails to load anything, I'm using the free subscription for azure to host it, so that's the cause.</h5>
 			<h4>Professional Work</h4>
 			<div class="row">
-				<div v-if="loading" class="loading">Loading...</div>
+				<div v-if="loading" class="loading my-3 text-center">
+					<div class="spinner-border" role="status">
+						<span class="sr-only"></span>
+					</div>
+				</div>
 				<ProjectTile v-else v-for="(proj, i) in projTiles['Professional']" :key="i" :project="proj"/>
 			</div>
 			<!-- <h4>Web Development</h4>

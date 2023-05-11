@@ -1,74 +1,100 @@
 <script setup>
-import { ref } from 'vue';
+import { ref} from 'vue';
 import axios from 'axios'
 
 const loading = ref(true);
 const bioBlurb = ref("");
 const interests = ref([]);
-const skills = ref([]);
-const contacts = ref({})
+const languages = ref([]);
+const software = ref([]);
+const contacts = ref({});
 
 axios.get("http://localhost:11001/getBio")
 	.then(response => {
 		let data = response.data
 		bioBlurb.value = data["bio"];
 		interests.value = data["interests"];
-		skills.value = data["skills"];
+		languages.value = data["langs"];
+		software.value = data["software"];
 		contacts.value = data["contacts"];
-		console.log(`Bio: ${bioBlurb.value}`)
-		console.log(`Interests: ${interests.value}`)
-		console.log(`skills: ${skills.value}`)
-		console.log(`contacts: ${contacts.value}`)
 		loading.value = false;
 	})
 	.catch(error => {
 		console.error(error);
 	});
+
 </script>
 
 <template>
 	<div>
 		<div class="container-fluid">
 			<div class="row">
-				<h2>About Me</h2>
+				<h3>About Me</h3>
 			</div>
 			<div class="row">
-				<div v-if="loading" class="loading">Loading...</div>
-				<div v-else class="col-sm-10">
-					<h4 v-html="bioBlurb">
-					</h4>
+				<div v-if="loading" class="loading col-10 m-5 d-flex justify-content-left">
+					<div class="spinner-border" role="status">
+						<span class="sr-only"></span>
+					</div>
+				</div>
+				<div v-else class="col-10">
+					<h5 v-html="bioBlurb"></h5>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-3">
-					<h3>Interested Fields</h3>
-					<div v-if="loading" class="loading">Loading...</div>
+				<div class="col-lg-3 col-md-6 col-sm-12">
+					<h4>Interested Fields</h4>
+					<div v-if="loading" class="loading m-5 d-flex justify-content-left">
+						<div class="spinner-border" role="status">
+							<span class="sr-only"></span>
+						</div>
+					</div>
 					<ul v-else class="list-group">
-						<li v-for="i in interests" class="list-group-item"  :key="i">{{ i }}</li>
+						<li v-for="i in interests" class="list-group-item"  :key="i"><h5>{{ i }}</h5></li>
 					</ul>
 				</div>
-				<div class="col-sm-3">
-					<h3>Skillset</h3>
-					<div v-if="loading" class="loading">Loading...</div>
-					<ul v-else class="list-group">
-						<li v-for="s in skills" class="list-group-item" :key="s">{{ s }}</li>
-					</ul>
+				<div class="col-lg-5 col-md-6 col-sm-12">
+					<h4>Skillset</h4>
+					<div v-if="loading" class="loading m-5 d-flex justify-content-left">
+						<div class="spinner-border" role="status">
+							<span class="sr-only"></span>
+						</div>
+					</div>
+					<div v-else>
+						<h5>Languages & Libraries:</h5>
+						<div class="row">
+							<h5 v-for="l in languages" class="col-xl-3 col-4 mb-1" :key="l">{{ l }}</h5>
+						</div>
+						<h5 class="mt-3">Software & IDE's:</h5>
+						<div class="row">
+							<h5 v-for="s in software" class="col-xl-3 col-4 mb-1" :key="s">{{ s }}</h5>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-6">
-					<h3>Education</h3>
-					<h4>
-						University: Rochester Institute of Technology<br />
-						Graduation: May 2017 Summa Cum Laude<br />
-						Degree: Bachelor of Science<br />
-						Major: Game Design & Development<br />
-						Minors: Archaeology, Political Science
-					</h4>
-					<h3>Contact Info & Links</h3>
-					<h4 v-for="(v, k) in contacts" :key="k">
-						{{ k }}:
-						<a v-if="v.includes('http')" :href="v">{{ v }}</a>
-						<span v-else>{{ v }}</span>
-					</h4>
+				<div class="col-lg-4 col-sm-12">
+					<h4>Education</h4>
+					<ul class="list-group">
+						<li class="list-group-item"><h5>University: Rochester Institute of Technology</h5></li>
+						<li class="list-group-item"><h5>Graduation: May 2017 Summa Cum Laude</h5></li>
+						<li class="list-group-item"><h5>Degree: Bachelor of Science</h5></li>
+						<li class="list-group-item"><h5>Major: Game Design & Development</h5></li>
+						<li class="list-group-item"><h5>Minors: Archaeology, Political Science</h5></li>
+					</ul>
+					<h4>Contact Info & Links</h4>
+					<div v-if="loading" class="loading m-5 d-flex justify-content-left">
+						<div class="spinner-border" role="status">
+							<span class="sr-only"></span>
+						</div>
+					</div>
+					<ul v-else class="list-group">
+						<li v-for="(v, k) in contacts" class="list-group-item" :key="k">
+							<h5>
+								{{ k }}:
+								<a v-if="v.includes('http')" :href="v">{{ v }}</a>
+								<span v-else>{{ v }}</span>
+							</h5>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

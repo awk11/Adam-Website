@@ -19,16 +19,13 @@ axios.get("http://localhost:11001/getResume")
 <template>
 	<div>
 		<div class="container-fluid text-center">
-			<h2>Resume</h2>
-			<div v-if="loading" class="loading">Loading...</div>
+			<h3>Resume</h3>
+			<div v-if="loading" class="loading my-3 text-center">
+				<div class="spinner-border" role="status">
+					<span class="sr-only"></span>
+				</div>
+			</div>
 			<iframe v-else :src="resumeUrl"></iframe>
 		</div>
 	</div>
 </template>
-
-<!-- <style scoped>
-	iframe {
-		width: 75%;
-		height: 480px;
-	}
-</style> -->

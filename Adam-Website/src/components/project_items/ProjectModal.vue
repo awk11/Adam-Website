@@ -23,7 +23,7 @@ function MediaZoom() {
 
 function HidingModal() {
 	MediaZoomed.value = false;
-	store.setProjectModalData(new ProjectDetails("{}"));
+	store.setProjectModalData(new ProjectDetails({}));
 }
 
 
@@ -35,7 +35,7 @@ function HidingModal() {
 			<div class="modal-content">
 				<div class="modal-body">
 					<div class="row">
-						<div :class="{'col-md-6': !MediaZoomed, 'col-md-12': MediaZoomed}">
+						<div :class="{'col-lg-6': !MediaZoomed, 'col-12': MediaZoomed}">
 							<div id="carouselControls" class="carousel slide">
 								<div class="carousel-inner" @click="MediaZoom">
 									<div v-for="(media, index) in modalDetails.mediaRefs" :key="index" class="carousel-item" :class="{ 'active': index === 0 }">
@@ -54,8 +54,8 @@ function HidingModal() {
 								</button>
 							</div>
 						</div>
-						<div class="col-md-6" v-if="!MediaZoomed">
-							<h4>{{ modalDetails.name }}</h4>
+						<div class="col-lg-6" v-if="!MediaZoomed">
+							<h4 class="my-4">{{ modalDetails.name }}</h4>
 							<p>{{ modalDetails.description }}</p>
 						</div>
 					</div>
@@ -64,9 +64,3 @@ function HidingModal() {
 		</div>
 	</div>
 </template>
-
-<!-- <style scoped>
-.carousel-item img, video {
-	cursor: pointer;
-}
-</style> -->

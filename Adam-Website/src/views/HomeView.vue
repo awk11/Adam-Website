@@ -8,41 +8,11 @@ import ProjectModal from '../components/project_items/ProjectModal.vue';
 
 <template>
   <main>
-		<WelcomeChunk id="welcome"/>
-		<BiographyChunk id="about"/>
-		<ExperienceChunk id="experience"/>
-		<ResumeChunk id="resume"/>
+		<WelcomeChunk id="welcome" class="bg-theme section" />
+		<BiographyChunk id="about" class="section" />
+		<ExperienceChunk id="experience" class="section" />
+		<ResumeChunk id="resume" class="section" />
   </main>
 
 	<ProjectModal />
 </template>
-
-<!-- <style scoped>
-
-#welcome {
-	background-color: #19aae0;
-	color: white;
-	padding: 60px 50px;
-	font-family: Montserrat, sans-serif;
-	margin-bottom: 0;
-}
-
-#about {
-	color: white; 
-	background-color: red;
-	padding: 60px 50px;
-}
-
-#experience {
-	color: white; 
-	background-color: green; 
-	padding: 60px 50px;
-}
-
-#resume {
-	color: white; 
-	background-color: purple; 
-	padding: 60px 50px;
-}
-
-</style> -->
