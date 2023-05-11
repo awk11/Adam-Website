@@ -47,6 +47,7 @@ api.get('/tiles', (req, res) => {
 	fetchJsonData(path.join(__dirname, 'jsonDB/projects.json'))
 	.then(data => {
 		let projects = data["projects"].filter(proj => proj.type === req.query.type);
+		projects.sort((a, b) => a.index - b.index);
 		let tiles = [];
 		for (item of projects) {
 			tiles.push({
@@ -81,7 +82,7 @@ api.get('/projectData', (req, res) => {
 
 // Gets info for welcome section
 api.get('/getWelcome', (req, res) => {
-	console.log("Calling /getWelcome")
+	console.log("Calling /getWelcome");
 	res.header("Access-Control-Allow-Origin", "*");
 	fetchJsonData(path.join(__dirname, 'jsonDB/about.json'))
 	.then(data => {
@@ -93,7 +94,7 @@ api.get('/getWelcome', (req, res) => {
 
 // Gets all of the info used in the About Me section
 api.get('/getBio', (req, res) => {
-	console.log("Calling /getBio")
+	console.log("Calling /getBio");
 	res.header("Access-Control-Allow-Origin", "*");
 	fetchJsonData(path.join(__dirname, 'jsonDB/about.json'))
 	.then(data => {
@@ -109,7 +110,7 @@ api.get('/getBio', (req, res) => {
 
 // Gets the url for where my resume is hosted
 api.get('/getResume', (req, res) => {
-	console.log("Calling /getResume")
+	console.log("Calling /getResume");
 	res.header("Access-Control-Allow-Origin", "*");
 	fetchJsonData(path.join(__dirname, 'jsonDB/about.json'))
 	.then(data => {

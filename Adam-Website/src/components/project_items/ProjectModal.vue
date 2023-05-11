@@ -34,13 +34,13 @@ function HidingModal() {
 			<div class="modal-content">
 				<div class="modal-body">
 					<div class="row">
-						<div :class="{'col-xl-6': !MediaZoomed, 'col-12': MediaZoomed}">
+						<div class="my-auto" :class="{'col-xl-6': !MediaZoomed, 'col-12': MediaZoomed}">
 							<div id="carouselControls" class="carousel slide">
 								<div class="carousel-inner" @click="MediaZoom">
 									<div v-for="(media, index) in modalDetails.mediaRefs" :key="index" class="carousel-item" :class="{ 'active': index === 0 }">
-										<video v-if="media.includes('.mp4')" class="d-block w-100 h-100" controls><source :src="media" type="video/mp4">Your browser does not support the video tag. Sorry about that! Please try again in a more modern browser.</video>
-										<iframe v-else-if="media.includes('http')" class="d-block w-100 h-100" width="650" height="360" :src="media" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
-										<img v-else :src="media" class="d-block w-100 h-100" :alt="`${modalDetails.name} media ${index}`">
+										<video v-if="media.includes('.mp4')" class="d-block w-100" controls><source :src="media" type="video/mp4">Your browser does not support the video tag. Sorry about that! Please try again in a more modern browser.</video>
+										<iframe v-else-if="media.includes('http')" class="d-block w-100" width="650" height="360" :src="media" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+										<img v-else :src="media" class="d-block w-100" :alt="`${modalDetails.name} media ${index}`">
 									</div>
 								</div>
 								<button v-if="(modalDetails.mediaRefs?.length ?? 0) > 1" class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
