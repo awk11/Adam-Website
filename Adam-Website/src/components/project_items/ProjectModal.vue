@@ -34,7 +34,7 @@ function HidingModal() {
 			<div class="modal-content">
 				<div class="modal-body">
 					<div class="row">
-						<div :class="{'col-lg-6': !MediaZoomed, 'col-12': MediaZoomed}">
+						<div :class="{'col-xl-6': !MediaZoomed, 'col-12': MediaZoomed}">
 							<div id="carouselControls" class="carousel slide">
 								<div class="carousel-inner" @click="MediaZoom">
 									<div v-for="(media, index) in modalDetails.mediaRefs" :key="index" class="carousel-item" :class="{ 'active': index === 0 }">
@@ -43,19 +43,19 @@ function HidingModal() {
 										<img v-else :src="media" class="d-block w-100 h-100" :alt="`${modalDetails.name} media ${index}`">
 									</div>
 								</div>
-								<button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+								<button v-if="(modalDetails.mediaRefs?.length ?? 0) > 1" class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
 									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 									<span class="visually-hidden">Previous</span>
 								</button>
-								<button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+								<button v-if="(modalDetails.mediaRefs?.length ?? 0) > 1" class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
 									<span class="carousel-control-next-icon" aria-hidden="true"></span>
 									<span class="visually-hidden">Next</span>
 								</button>
 							</div>
 						</div>
-						<div class="col-lg-6" v-if="!MediaZoomed">
+						<div class="col-xl-6" v-if="!MediaZoomed">
 							<h4 class="my-4">{{ modalDetails.name }}</h4>
-							<p>{{ modalDetails.description }}</p>
+							<p v-html="modalDetails.description"></p>
 						</div>
 					</div>
 				</div>

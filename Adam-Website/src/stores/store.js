@@ -5,7 +5,7 @@ import ProjectDetails from '../scripts/projectDetails'
 import Modal from 'bootstrap/js/dist/modal.js'
 
 export const ProjectStore = defineStore('projectstore', () => {
-    const modalDetails = ref(new ProjectDetails("{}"));
+    const modalDetails = ref(new ProjectDetails({}));
 
     function setProjectModalData(details) {
         if (details instanceof ProjectDetails) {
