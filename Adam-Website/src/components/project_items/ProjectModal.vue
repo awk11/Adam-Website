@@ -1,10 +1,9 @@
 <script setup>
 import ProjectDetails from '../../scripts/projectDetails';
-import { portfolioStore } from '../../stores/store.js';
+import { ProjectStore } from '../../stores/store.js';
 import { ref, computed, onMounted } from 'vue';
-// import { Modal } from 'bootstrap/js/dist/modal.js'
 
-const store = portfolioStore();
+const store = ProjectStore();
 const MediaZoomed = ref(false);
 
 onMounted(() => {
@@ -40,7 +39,7 @@ function HidingModal() {
 								<div class="carousel-inner" @click="MediaZoom">
 									<div v-for="(media, index) in modalDetails.mediaRefs" :key="index" class="carousel-item" :class="{ 'active': index === 0 }">
 										<video v-if="media.includes('.mp4')" class="d-block w-100 h-100" controls><source :src="media" type="video/mp4">Your browser does not support the video tag. Sorry about that! Please try again in a more modern browser.</video>
-										<iframe v-else-if="media.includes('http')" class="d-block w-100 h-100" width="650" height="360" :src="media" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										<iframe v-else-if="media.includes('http')" class="d-block w-100 h-100" width="650" height="360" :src="media" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
 										<img v-else :src="media" class="d-block w-100 h-100" :alt="`${modalDetails.name} media ${index}`">
 									</div>
 								</div>

@@ -124,3 +124,16 @@ iframe {
 		opacity: 1;
 	}
 }
+
+
+//Loading Spinners
+
+@for $i from 6 through 15 {
+	$border-width: #{$i * 0.05}rem;
+
+	.spinner-#{$i} {
+		width: #{$i}rem;
+		height: #{$i}rem;
+		border-width: $border-width;
+	}
+}

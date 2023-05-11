@@ -28,6 +28,6 @@ import { RouterLink, RouterView } from 'vue-router'
 		<a href="#top" title="To Top">
 			<span class="bi bi-chevron-double-up footer-icon"></span>
 		</a>
-		<p>&copy; Made by Adam Kaufman. Last updated on May 10<sup>th</sup>, 2023</p>
+		<p>&copy; Made by Adam Kaufman. Last updated on May 12<sup>th</sup>, 2023</p>
 	</footer>
 </template>

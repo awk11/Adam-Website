@@ -4,6 +4,7 @@ import BiographyChunk from '../components/BiographyChunk.vue';
 import ExperienceChunk from '../components/ExperienceChunk.vue';
 import ResumeChunk from '../components/ResumeChunk.vue';
 import ProjectModal from '../components/project_items/ProjectModal.vue';
+import ErrorModal from '../components/utility/ErrorModal.vue';
 </script>
 
 <template>
@@ -15,4 +16,5 @@ import ProjectModal from '../components/project_items/ProjectModal.vue';
   </main>
 
 	<ProjectModal />
+	<ErrorModal />
 </template>

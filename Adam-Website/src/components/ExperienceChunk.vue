@@ -1,9 +1,11 @@
 <script setup>
 import { ref } from 'vue';
+import { ErrorStore } from '../stores/store';
 import ProjectTile from './project_items/ProjectTile.vue';
 import Tile from '../scripts/tile.js';
 
 import axios from 'axios'
+import LoadSpinner from './utility/LoadSpinner.vue';
 
 const loading = ref(true);
 const projTiles = ref({});
@@ -21,6 +23,7 @@ async function GetProjects(type) {
 		})
 		.catch(error => {
 			console.error(error);
+			ErrorStore().SiteError();
 		});
 		loading.value = false;
 }
@@ -34,11 +37,7 @@ async function GetProjects(type) {
 			<h5>Select a tile to learn more about a project. Enlarge or minimize a picture by clicking on it. If the site is slow/fails to load anything, I'm using the free subscription for azure to host it, so that's the cause.</h5>
 			<h4>Professional Work</h4>
 			<div class="row">
-				<div v-if="loading" class="loading my-3 text-center">
-					<div class="spinner-border" role="status">
-						<span class="sr-only"></span>
-					</div>
-				</div>
+				<LoadSpinner v-if="loading" :classes="'spinner-10 col-12 mx-auto'" />
 				<ProjectTile v-else v-for="(proj, i) in projTiles['Professional']" :key="i" :project="proj"/>
 			</div>
 			<!-- <h4>Web Development</h4>

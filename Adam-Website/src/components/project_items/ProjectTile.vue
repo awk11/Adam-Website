@@ -1,8 +1,11 @@
 <script setup>
 import { ref } from 'vue';
+import { ProjectStore, ErrorStore } from '../../stores/store.js';
+
 import Tile from '../../scripts/tile.js'
 import ProjectDetails from '../../scripts/projectDetails.js'
-import { portfolioStore } from '../../stores/store.js';
+import LoadSpinner from '../utility/LoadSpinner.vue';
+
 import Modal from 'bootstrap/js/dist/modal.js'
 import axios from 'axios'
 const props = defineProps({project: {type: Tile}});
@@ -18,8 +21,8 @@ function ShowModal() {
 
 			//Create object with details and then add to the store
 			let projDetails = new ProjectDetails(detailsJson);
-			const store = portfolioStore()
-			store.setProjectModalData(projDetails)
+			const store = ProjectStore();
+			store.setProjectModalData(projDetails);
 
 			// Open the modal
 			const projModal = new Modal('#onload');
@@ -28,6 +31,7 @@ function ShowModal() {
 		})
 		.catch(error => {
 			console.error(error);
+			ErrorStore().SiteError();
 		});
 }
 
@@ -35,11 +39,7 @@ function ShowModal() {
 
 <template>
 	<div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12">
-		<div v-if="loadingModal" class="loading my-3 text-center">
-			<div class="spinner-border" role="status">
-				<span class="sr-only"></span>
-			</div>
-		</div>
+		<LoadSpinner v-if="loadingModal" :classes="'spinner-10 my-5 text-center'" />
 		<div v-else class="prj" @click="ShowModal">
 			<img class="normal" :src="props.project.normalImg" :alt="project.Name" :title="project.Name" />
 			<img class="onhover" :src="props.project.hoverImg" :alt="project.Name" :title="project.Name" />

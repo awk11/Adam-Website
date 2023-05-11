@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { ErrorStore } from '../stores/store';
 import axios from 'axios'
+import LoadSpinner from './utility/LoadSpinner.vue';
 
 const loading = ref(true);
 const resumeUrl = ref("");
@@ -12,6 +14,7 @@ axios.get("http://localhost:11001/getResume")
 	})
 	.catch(error => {
 		console.error(error);
+		ErrorStore().SiteError();
 	});
 
 </script>
@@ -20,11 +23,7 @@ axios.get("http://localhost:11001/getResume")
 	<div>
 		<div class="container-fluid text-center">
 			<h3>Resume</h3>
-			<div v-if="loading" class="loading my-3 text-center">
-				<div class="spinner-border" role="status">
-					<span class="sr-only"></span>
-				</div>
-			</div>
+			<LoadSpinner v-if="loading" :classes="'spinner-15 my-5 text-center'" />
 			<iframe v-else :src="resumeUrl"></iframe>
 		</div>
 	</div>

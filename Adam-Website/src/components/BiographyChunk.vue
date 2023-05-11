@@ -1,6 +1,8 @@
 <script setup>
 import { ref} from 'vue';
 import axios from 'axios'
+import { ErrorStore } from '../stores/store';
+import LoadSpinner from './utility/LoadSpinner.vue';
 
 const loading = ref(true);
 const bioBlurb = ref("");
@@ -21,6 +23,7 @@ axios.get("http://localhost:11001/getBio")
 	})
 	.catch(error => {
 		console.error(error);
+		ErrorStore().SiteError();
 	});
 
 </script>
@@ -32,11 +35,7 @@ axios.get("http://localhost:11001/getBio")
 				<h3>About Me</h3>
 			</div>
 			<div class="row">
-				<div v-if="loading" class="loading col-10 m-5 d-flex justify-content-left">
-					<div class="spinner-border" role="status">
-						<span class="sr-only"></span>
-					</div>
-				</div>
+				<LoadSpinner v-if="loading" :classes="'spinner-8 m-5'" />
 				<div v-else class="col-10">
 					<h5 v-html="bioBlurb"></h5>
 				</div>
@@ -44,22 +43,14 @@ axios.get("http://localhost:11001/getBio")
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-sm-12">
 					<h4>Interested Fields</h4>
-					<div v-if="loading" class="loading m-5 d-flex justify-content-left">
-						<div class="spinner-border" role="status">
-							<span class="sr-only"></span>
-						</div>
-					</div>
+					<LoadSpinner v-if="loading" :classes="'spinner-6 m-5 d-flex justify-content-left'" />
 					<ul v-else class="list-group">
 						<li v-for="i in interests" class="list-group-item"  :key="i"><h5>{{ i }}</h5></li>
 					</ul>
 				</div>
 				<div class="col-lg-5 col-md-6 col-sm-12">
 					<h4>Skillset</h4>
-					<div v-if="loading" class="loading m-5 d-flex justify-content-left">
-						<div class="spinner-border" role="status">
-							<span class="sr-only"></span>
-						</div>
-					</div>
+					<LoadSpinner v-if="loading" :classes="'spinner-6 m-5 d-flex justify-content-left'" />
 					<div v-else>
 						<h5>Languages & Libraries:</h5>
 						<div class="row">
@@ -81,11 +72,7 @@ axios.get("http://localhost:11001/getBio")
 						<li class="list-group-item"><h5>Minors: Archaeology, Political Science</h5></li>
 					</ul>
 					<h4>Contact Info & Links</h4>
-					<div v-if="loading" class="loading m-5 d-flex justify-content-left">
-						<div class="spinner-border" role="status">
-							<span class="sr-only"></span>
-						</div>
-					</div>
+					<LoadSpinner v-if="loading" :classes="'spinner-6 m-5 d-flex justify-content-left'" />
 					<ul v-else class="list-group">
 						<li v-for="(v, k) in contacts" class="list-group-item" :key="k">
 							<h5>

@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue';
+import { ErrorStore } from '../stores/store';
 import axios from 'axios'
+
+import LoadSpinner from './utility/LoadSpinner.vue';
 
 const loading = ref(true);
 const welcomeMedia = ref("");
@@ -13,6 +16,7 @@ axios.get("http://localhost:11001/getWelcome")
 	})
 	.catch(error => {
 		console.error(error);
+		ErrorStore().SiteError();
 	});
 </script>
 
@@ -21,11 +25,7 @@ axios.get("http://localhost:11001/getWelcome")
 		<div class="jumbotron text-center">
 			<h1>Adam Kaufman</h1>
 			<p>Developer Portfolio</p>
-			<div v-if="loading" class="loading col-12 m-5 d-flex justify-content-center">
-				<div class="spinner-border" role="status">
-					<span class="sr-only"></span>
-				</div>
-			</div>
+			<LoadSpinner v-if="loading" :classes="'spinner-12 my-3 text-center'" />
 			<img v-else :src="welcomeMedia" class="rounded-circle img-fluid" alt="Adam Kaufman (me)" width="350" height="350">
 		</div>
 	</div>
