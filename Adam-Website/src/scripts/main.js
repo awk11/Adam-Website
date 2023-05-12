@@ -1,7 +1,5 @@
-import "@popperjs/core"
 import "bootstrap/js/dist/carousel"
 import "bootstrap-icons/font/bootstrap-icons.min.css"
-import '../assets/styles.scss'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

@@ -31,3 +31,7 @@ import { RouterLink, RouterView } from 'vue-router'
 		<p>&copy; Made by Adam Kaufman. Last updated on May 12<sup>th</sup>, 2023</p>
 	</footer>
 </template>
+
+<style lang="sass">
+@import "./assets/styles.scss"
+</style>
