@@ -8,7 +8,7 @@ import LoadSpinner from './utility/LoadSpinner.vue';
 const loading = ref(true);
 const welcomeMedia = ref("");
 
-axios.get("http://localhost:11001/getWelcome")
+axios.get("/getWelcome")
 	.then(response => {
 		let data = response.data
 		welcomeMedia.value = data["welcomeMedia"];

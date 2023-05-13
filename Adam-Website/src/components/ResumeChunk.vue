@@ -7,7 +7,7 @@ import LoadSpinner from './utility/LoadSpinner.vue';
 const loading = ref(true);
 const resumeUrl = ref("");
 
-axios.get("http://localhost:11001/getResume")
+axios.get("/getResume")
 	.then(response => {
 		resumeUrl.value = response.data["resumeUrl"];
 		loading.value = false;

@@ -11,7 +11,7 @@ const languages = ref([]);
 const software = ref([]);
 const contacts = ref({});
 
-axios.get("http://localhost:11001/getBio")
+axios.get("/getBio")
 	.then(response => {
 		let data = response.data
 		bioBlurb.value = data["bio"];

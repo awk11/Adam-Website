@@ -15,7 +15,7 @@ const loadingModal = ref(false);
 function ShowModal() {
 	loadingModal.value = true;
 	// Make REST call to get project details
-	axios.get('http://localhost:11001/projectData', {params: {name: props.project.name}})
+	axios.get('/projectData', {params: {name: props.project.name}})
 		.then(response => {
 			let detailsJson = new ProjectDetails(response.data);
 

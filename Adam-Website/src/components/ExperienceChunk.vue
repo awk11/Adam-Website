@@ -41,7 +41,7 @@ function toggleCollegeProjects() {
 
 async function GetProjects(type) {
 	// Make call to backend with type to get list of projects with tile info for each
-	axios.get('http://localhost:11001/tiles', {params: {type: type}})
+	axios.get('/tiles', {params: {type: type}})
 		.then(response => {
 			var tiles = [];
 			for (let tile of response.data["tiles"]) {
