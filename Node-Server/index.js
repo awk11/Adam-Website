@@ -11,10 +11,10 @@ var port = process.env.PORT || process.env.NODE_PORT || 11000;
 const api = express();
 api.use(compression());
 api.use(bodyParser.json());
-api.use(express.static(path.join(process.cwd(), '/Adam-Website/dist')));
+api.use(express.static(path.join(process.cwd(), '../Adam-Website/dist')));
 
 api.get('/', (req,res) => {
-  res.sendFile(path.join(process.cwd(), '/Adam-Website/dist/index.html'));
+  res.sendFile(path.join(process.cwd(), '../Adam-Website/dist/index.html'));
 });
 api.use('/MediaBucket', express.static(path.resolve(__dirname + '/MediaBucket')));
 
