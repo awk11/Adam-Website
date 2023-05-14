@@ -36,7 +36,7 @@ axios.get("http://localhost:11001/getBio")
 			</div>
 			<div class="row">
 				<LoadSpinner v-if="loading" :classes="'spinner-8 m-5'" />
-				<div v-else class="col-10">
+				<div v-else class="col-md-10 col-sm-12">
 					<h5 v-html="bioBlurb"></h5>
 				</div>
 			</div>

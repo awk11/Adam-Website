@@ -63,7 +63,7 @@ async function GetProjects(type) {
 		<div class="container-fluid text-center">
 			<h3>Experience</h3>
 			<div class="row mb-3">
-				<h5 class="col-10 mx-auto">Select a tile to learn more about a project or work experience. Enlarge or minimize a picture by clicking on it. If the site is slow/fails to load anything, just reload the page. I'm using the free subscription for azure to host this site, which is fairly slow.</h5>
+				<h5 class="col-12 mx-auto">Select a tile to learn more about a project I've worked on or previous job I've had. Enlarge or minimize images by clicking on them.</h5>
 			</div>
 			<LoadSpinner v-if="loading" :classes="'spinner-10 col-12 mx-auto'" />
 			<div v-else class="row">

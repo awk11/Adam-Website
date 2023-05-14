@@ -1,8 +1,10 @@
 //Globals
+$mobile-width: 667px;
 $theme-primary: #19aae0;
 $theme-secondary: #f6f6f6;
 $font-family-sans-serif: Montserrat, system-ui, Arial, sans-serif;
 $site-padding: 60px 50px;
+$site-padding-mobile: 60px 25px;
 
 // Navigation Bootstrap
 $navbar-dark-color: rgba(white, 1);
@@ -35,7 +37,7 @@ $carousel-control-hover-opacity: .8;
 	@extend .px-2;
 
 	&:hover {
-		background-color: white;
+		background-color: $theme-secondary;
 	}
 }
 
@@ -48,10 +50,21 @@ $carousel-control-hover-opacity: .8;
 	font-size: 2rem;
 }
 
+.welcome-img {
+	width: 50vw;
+	height: auto;
+	@media screen and (max-width: $mobile-width) {
+		width: 75vw;
+	}
+}
+
 .section {
 	padding: $site-padding;
 	background-color: $theme-secondary;
 	border-bottom: 1px solid rgba($theme-primary, .4);
+	@media screen and (max-width: $mobile-width) {
+		padding: $site-padding-mobile;
+	}
 }
 
 h3, h4 {
@@ -82,19 +95,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-//Resume
 iframe {
 	width: 75%;
 	height: 480px;
 }
 
-// Poject Modal
 .carousel-item {
 	cursor: pointer;
 }
 
 
-//Project Tile
+//Project Tiles
 .prj{
 	position: relative;
 	max-width: 250px;

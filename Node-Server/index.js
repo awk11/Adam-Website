@@ -13,6 +13,14 @@ api.use(compression());
 api.use(bodyParser.json());
 api.use(express.static(process.cwd() + '/Adam-Website'));
 
+// Enable CORS for all methods
+api.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "*")
+  next()
+});
+
+
 // #region Utility Functions
 async function fetchJsonData(filepath) {
 	try {
@@ -29,21 +37,11 @@ async function fetchJsonData(filepath) {
 
 // API REST Calls
 
-// #region Authentication
-api.post('/login', (req, res) => {
-	const username = req.body.username;
-	const password = req.body.password;
-	//TODO: Authentication
-});
-
-// #endregion
-
 // #region Get Experiences
 
 // Gets the tile info for all experiences with the specified type
 api.get('/tiles', (req, res) => {
 	console.log(`Calling /tiles with type: ${req.query.type}`);
-	res.header("Access-Control-Allow-Origin", "*");
 	fetchJsonData(path.join(__dirname, 'jsonDB/projects.json'))
 	.then(data => {
 		let projects = data["projects"].filter(proj => proj.type === req.query.type);
@@ -64,7 +62,6 @@ api.get('/tiles', (req, res) => {
 // Gets the experience info used to display its Modal pop-up
 api.get('/projectData', (req, res) => {
 	console.log(`Calling /projectData with name: ${req.query.name}`);
-	res.header("Access-Control-Allow-Origin", "*");
 	fetchJsonData(path.join(__dirname, 'jsonDB/projects.json'))
 	.then(data => {
 		let project = data["projects"].find(proj => proj.name === req.query.name);
@@ -83,7 +80,6 @@ api.get('/projectData', (req, res) => {
 // Gets info for welcome section
 api.get('/getWelcome', (req, res) => {
 	console.log("Calling /getWelcome");
-	res.header("Access-Control-Allow-Origin", "*");
 	fetchJsonData(path.join(__dirname, 'jsonDB/about.json'))
 	.then(data => {
 		res.send({
@@ -95,7 +91,6 @@ api.get('/getWelcome', (req, res) => {
 // Gets all of the info used in the About Me section
 api.get('/getBio', (req, res) => {
 	console.log("Calling /getBio");
-	res.header("Access-Control-Allow-Origin", "*");
 	fetchJsonData(path.join(__dirname, 'jsonDB/about.json'))
 	.then(data => {
 		res.send({
@@ -111,7 +106,6 @@ api.get('/getBio', (req, res) => {
 // Gets the url for where my resume is hosted
 api.get('/getResume', (req, res) => {
 	console.log("Calling /getResume");
-	res.header("Access-Control-Allow-Origin", "*");
 	fetchJsonData(path.join(__dirname, 'jsonDB/about.json'))
 	.then(data => {
 		res.send({"resumeUrl": data["resumeUrl"]});
