@@ -68,7 +68,7 @@
 			"tileImage": "MediaBucket/Tiles/adamnet.png",
 			"hoverImage": "MediaBucket/Tiles/adamnetTop.png",
 			"skillList": ["Vue.js", "Express/Node.js", "JavaScript", "Bootstrap", "HTML/CSS", "Sass", "Vite", "AWS", "Docker"],
-			"mediaList": ["MediaBucket/Portfolio NET/portfolio1.png", "MediaBucket/Portfolio NET/portfolio2.png"]
+			"mediaList": ["MediaBucket/Personal Site/welcome.png", "MediaBucket/Personal Site/experience.png", "MediaBucket/Personal Site/aws.png"]
 		},
 		{
 			"name": "Bat Game",

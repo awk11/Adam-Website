@@ -28,7 +28,7 @@ axios.get("http://localhost:11001/getWelcome")
 			<LoadSpinner v-if="loading" :classes="'spinner-12 my-3 text-center'" />
 			<div v-else class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-touch="false">
 				<div class="carousel-inner">
-					<div v-for="(img, i) in welcomeMedia" style="transition-duration: 1.5s;" class="carousel-item text-center" :class="{ 'active': i === 0 }" data-bs-interval="5000" :key="i">
+					<div v-for="(img, i) in welcomeMedia" style="transition-duration: 1.5s;" class="carousel-item text-center" :class="{ 'active': i === 0 }" data-bs-interval="6500" :key="i">
 						<img :src="img" class="welcome-img rounded img-fluid shadow-lg" alt="Adam Kaufman (me)">
 					</div>
 				</div>
