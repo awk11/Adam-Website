@@ -100,7 +100,7 @@ iframe {
 	height: 480px;
 }
 
-.carousel-item {
+#onload .carousel-item {
 	cursor: pointer;
 }
 
@@ -124,14 +124,14 @@ iframe {
 		@extend .h-100;
 	
 		&.normal {
-				position: relative;
+			position: relative;
 		}
 
 		&.onhover {
-				opacity: 0;
-				position: absolute;
-				top: 0px;
-				left: 0px;
+			opacity: 0;
+			position: absolute;
+			top: 0px;
+			left: 0px;
 		}
 	}
 
