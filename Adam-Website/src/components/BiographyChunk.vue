@@ -56,7 +56,7 @@ axios.get("http://localhost:11001/getBio")
 						<div class="row">
 							<h5 v-for="l in languages" class="col-xl-3 col-4 mb-1" :key="l">{{ l }}</h5>
 						</div>
-						<h5 class="mt-3">Software & IDE's:</h5>
+						<h5 class="mt-3">Software & IDEs:</h5>
 						<div class="row">
 							<h5 v-for="s in software" class="col-xl-3 col-4 mb-1" :key="s">{{ s }}</h5>
 						</div>
@@ -77,7 +77,7 @@ axios.get("http://localhost:11001/getBio")
 						<li v-for="(v, k) in contacts" class="list-group-item" :key="k">
 							<h5>
 								{{ k }}:
-								<a v-if="v.includes('http')" :href="v">{{ v }}</a>
+								<a v-if="v.includes('http')" :href="v" target = '_blank' rel='noopener'>{{ v }}</a>
 								<span v-else>{{ v }}</span>
 							</h5>
 						</li>
