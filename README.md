@@ -17,7 +17,7 @@ The file structure for the front end follows a standrd vue project layout, with 
 
 For the back end, the api is all organized into the index.js file and connects with the json files in jsonDB.
 
-The MediaBucket folder is where all images and videos w=throughout the site are stored and pulled from. The folder is connected to the front end project and compiled along with the project on npm run build using vite.
+The MediaBucket folder is where all images and videos throughout the site are stored and pulled from. The folder is connected to the front end project and compiled along with the project on npm run build using vite. Media is organized by project, with a seperate folder for all tile images.
 
 ## Build and run
 
