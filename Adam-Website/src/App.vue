@@ -1,5 +1,19 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue';
+import axios from 'axios'
+
+const loading = ref(true);
+const editDate = ref(Date());
+
+axios.get("http://localhost:11001/getEditDate")
+	.then(response => {
+		editDate.value =  new Date(response.data["editDate"]);
+		loading.value = false;
+	})
+	.catch(error => {
+		editDate.value = new Date("05-15-2023")
+	});
 </script>
 
 <template>
@@ -25,7 +39,10 @@ import { RouterLink, RouterView } from 'vue-router'
 		<a href="#top" title="To Top">
 			<span class="bi bi-chevron-double-up footer-icon"></span>
 		</a>
-		<p>&copy; Made by Adam Kaufman. Last updated on May 15<sup>th</sup>, 2023</p>
+		<p>
+			&copy; Made by Adam Kaufman. Last updated on 
+			{{ editDate.toLocaleString("en-US", {month: "long", day: "numeric", year: "numeric"}) }}
+		</p>
 	</footer>
 </template>
 

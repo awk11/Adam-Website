@@ -112,6 +112,15 @@ api.get('/getResume', (req, res) => {
 	});
 });
 
+api.get('/getEditDate', (req, res) => {
+	console.log("Calling /getEditDate");
+	console.log(Date.now());
+	fetchJsonData(path.join(__dirname, 'jsonDB/about.json'))
+	.then(data => {
+		res.send({"editDate": data["editDate"]});
+	});
+});
+
 // #endregion
 
 // Start the api
