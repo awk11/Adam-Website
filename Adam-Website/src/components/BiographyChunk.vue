@@ -45,7 +45,7 @@ axios.get("http://localhost:11001/getBio")
 					<h4>Interested Fields</h4>
 					<LoadSpinner v-if="loading" :classes="'spinner-6 m-5 d-flex justify-content-left'" />
 					<ul v-else class="list-group">
-						<li v-for="i in interests" class="list-group-item"  :key="i"><h5>{{ i }}</h5></li>
+						<li v-for="i in interests" class="list-group-item" :key="i"><h5>{{ i }}</h5></li>
 					</ul>
 				</div>
 				<div class="col-lg-5 col-md-6 col-sm-12">

@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({classes: {type: String}});
+const props = defineProps({classes: String});
 
 </script>
 

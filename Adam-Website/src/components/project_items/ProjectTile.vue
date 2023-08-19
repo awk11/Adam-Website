@@ -8,7 +8,7 @@ import LoadSpinner from '../utility/LoadSpinner.vue';
 
 import Modal from 'bootstrap/js/dist/modal.js'
 import axios from 'axios'
-const props = defineProps({project: {type: Tile}});
+const props = defineProps({project: Tile});
 
 const loadingModal = ref(false);
 
