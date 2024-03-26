@@ -11,7 +11,7 @@ const store = EditorStore();
 
 // const bioBlurb = ref(store.bioBlurb);
 function printBlurb() {
-	console.log(store.interests)
+	console.log(store.contacts)
 };
 // console.log(bioBlurb.value);
 
@@ -52,13 +52,27 @@ function printBlurb() {
 				</div>
 			</div>
 			<div class="row mb-5">
-				<div class="col-4">
+				<div class="col-2">
 					<label for="formProjectList" class="form-label">Select Project</label>
 					<textarea class="form-control" id="formProjectList" rows="10"></textarea>
 				</div>
-				<div class="col-8">
-					<div class="row">
-						<div>
+				<div class="col-10">
+					<div class="row mb-3">
+						<div class="col-4">
+							<div class="row mb-3">
+								<label for="formProjType" class="form-label">Project Type</label>
+								<select id="formProjType" class="form-select form-select">
+									<option selected value="Professional">Professional</option>
+									<option value="College Project">College Project</option>
+									<option value="Dont Display">Dont Display</option>
+								</select>
+							</div>
+							<div class="row">
+								<label for="formProjTile" class="form-label">Add Tile Media</label>
+								<input type="file" class="form-control" id="formProjTile">
+							</div>
+						</div>
+						<div class="col-8">
 							<label for="formProjBlurb" class="form-label">Project blurb</label>
 							<textarea class="form-control" id="formProjBlurb" rows="5"></textarea>
 						</div>
@@ -66,7 +80,7 @@ function printBlurb() {
 					<div class="row">
 						<div class="col-4">
 							<label for="formProjMedia" class="form-label">Add Media</label>
-							<input type="text" class="form-control" id="formProjMedia">
+							<input type="file" class="form-control" id="formProjMedia">
 						</div>
 						<div class="col-4">
 							<label for="formProjMediaList" class="form-label">Edit Media</label>
