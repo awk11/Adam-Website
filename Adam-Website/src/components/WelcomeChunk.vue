@@ -1,23 +1,26 @@
 <script setup>
 import { ref } from 'vue';
-import { ErrorStore } from '../stores/store';
-import axios from 'axios'
+// import { ErrorStore } from '../stores/store';
+// import axios from 'axios'
 
 import LoadSpinner from './utility/LoadSpinner.vue';
+import data from '../assets/jsonDB/about.json'
 
 const loading = ref(true);
 const welcomeMedia = ref("");
+welcomeMedia.value = data["welcomeMedia"];
+loading.value = false;
 
-axios.get("http://localhost:11001/getWelcome")
-	.then(response => {
-		let data = response.data
-		welcomeMedia.value = data["welcomeMedia"];
-		loading.value = false;
-	})
-	.catch(error => {
-		console.error(error);
-		ErrorStore().SiteError();
-	});
+// axios.get("http://localhost:11001/getWelcome")
+// 	.then(response => {
+// 		let data = response.data
+// 		welcomeMedia.value = data["welcomeMedia"];
+// 		loading.value = false;
+// 	})
+// 	.catch(error => {
+// 		console.error(error);
+// 		ErrorStore().SiteError();
+// 	});
 </script>
 
 <template>

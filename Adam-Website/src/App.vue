@@ -3,16 +3,19 @@ import { RouterLink, RouterView } from 'vue-router';
 import { ref } from 'vue';
 import axios from 'axios';
 
+import data from './assets/jsonDB/about.json'
+
 const editDate = ref(Date());
 const url = ref(window.location.origin);
+editDate.value =  new Date(data["editDate"]);
 
-axios.get("http://localhost:11001/getEditDate")
-	.then(response => {
-		editDate.value =  new Date(response.data["editDate"]);
-	})
-	.catch(_error => {
-		editDate.value = new Date("05-15-2023")
-	});
+// axios.get("http://localhost:11001/getEditDate")
+// 	.then(response => {
+// 		editDate.value =  new Date(response.data["editDate"]);
+// 	})
+// 	.catch(_error => {
+// 		editDate.value = new Date("05-15-2023")
+// 	});
 </script>
 
 <template>

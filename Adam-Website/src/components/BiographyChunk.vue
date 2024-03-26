@@ -1,8 +1,10 @@
 <script setup>
-import { ref} from 'vue';
-import axios from 'axios'
-import { ErrorStore } from '../stores/store';
+import { ref, onMounted } from 'vue';
+// import axios from 'axios'
+// import { ErrorStore } from '../stores/store';
 import LoadSpinner from './utility/LoadSpinner.vue';
+
+import data from '../assets/jsonDB/about.json'
 
 const loading = ref(true);
 const bioBlurb = ref("");
@@ -11,20 +13,29 @@ const languages = ref([]);
 const software = ref([]);
 const contacts = ref({});
 
-axios.get("http://localhost:11001/getBio")
-	.then(response => {
-		let data = response.data
-		bioBlurb.value = data["bio"];
-		interests.value = data["interests"];
-		languages.value = data["langs"];
-		software.value = data["software"];
-		contacts.value = data["contacts"];
-		loading.value = false;
-	})
-	.catch(error => {
-		console.error(error);
-		ErrorStore().SiteError();
-	});
+onMounted(() => {
+	bioBlurb.value = data["bio"];
+	interests.value = data["interests"];
+	languages.value = data["langs"];
+	software.value = data["software"];
+	contacts.value = data["contacts"];
+	loading.value = false;
+})
+
+// axios.get("http://localhost:11001/getBio")
+// 	.then(response => {
+// 		let data = response.data
+// 		bioBlurb.value = data["bio"];
+// 		interests.value = data["interests"];
+// 		languages.value = data["langs"];
+// 		software.value = data["software"];
+// 		contacts.value = data["contacts"];
+// 		loading.value = false;
+// 	})
+// 	.catch(error => {
+// 		console.error(error);
+// 		ErrorStore().SiteError();
+// 	});
 
 </script>
 

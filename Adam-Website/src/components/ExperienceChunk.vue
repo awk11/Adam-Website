@@ -1,12 +1,13 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { ErrorStore } from '../stores/store';
+// import { ErrorStore } from '../stores/store';
 import ProjectTile from './project_items/ProjectTile.vue';
 import Tile from '../scripts/tile.js';
 
-import axios from 'axios'
+// import axios from 'axios'
 import Popover from 'bootstrap/js/dist/popover.js'
 import LoadSpinner from './utility/LoadSpinner.vue';
+import data from '../assets/jsonDB/projects.json'
 
 const loading = ref(true);
 const projTiles = ref({});
@@ -41,19 +42,27 @@ function toggleCollegeProjects() {
 
 async function GetProjects(type) {
 	// Make call to backend with type to get list of projects with tile info for each
-	axios.get('http://localhost:11001/tiles', {params: {type: type}})
-		.then(response => {
-			var tiles = [];
-			for (let tile of response.data["tiles"]) {
-				tiles.push(new Tile(tile["name"], tile["tileImage"], tile["hoverImage"], tile["skills"]))
-			}
-			projTiles.value[type] = tiles;
-			loading.value = false;
-		})
-		.catch(error => {
-			console.error(error);
-			ErrorStore().SiteError();
-		});
+	// axios.get('http://localhost:11001/tiles', {params: {type: type}})
+	// 	.then(response => {
+	// 		var tiles = [];
+	// 		for (let tile of response.data["tiles"]) {
+	// 			tiles.push(new Tile(tile["name"], tile["tileImage"], tile["hoverImage"], tile["skills"]))
+	// 		}
+	// 		projTiles.value[type] = tiles;
+	// 		loading.value = false;
+	// 	})
+	// 	.catch(error => {
+	// 		console.error(error);
+	// 		ErrorStore().SiteError();
+	// 	});
+	let projects = data["projects"].filter(proj => proj.type === type);
+	projects.sort((a, b) => a.index - b.index);
+	let tiles = [];
+	for (let item of projects) {
+		tiles.push(new Tile(item["name"], item["tileImage"], item["hoverImage"], item["skillList"]))
+	}
+	projTiles.value[type] = tiles;
+	loading.value = false;
 }
 
 </script>
