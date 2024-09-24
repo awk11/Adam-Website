@@ -8,8 +8,10 @@ import data from '../assets/jsonDB/about.json'
 
 const loading = ref(true);
 const resumeUrl = ref("");
-resumeUrl.value = data["resumeUrl"];
-loading.value = false;
+setTimeout(function() {
+	resumeUrl.value = data["resumeUrl"];
+	loading.value = false;
+}, 250)
 
 // axios.get("http://localhost:11001/getResume")
 // 	.then(response => {

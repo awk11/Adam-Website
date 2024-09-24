@@ -14,12 +14,14 @@ const software = ref([]);
 const contacts = ref({});
 
 onMounted(() => {
-	bioBlurb.value = data["bio"];
-	interests.value = data["interests"];
-	languages.value = data["langs"];
-	software.value = data["software"];
-	contacts.value = data["contacts"];
-	loading.value = false;
+	setTimeout(function(){
+		bioBlurb.value = data["bio"];
+		interests.value = data["interests"];
+		languages.value = data["langs"];
+		software.value = data["software"];
+		contacts.value = data["contacts"];
+		loading.value = false;
+	}, 250)
 })
 
 // axios.get("http://localhost:11001/getBio")

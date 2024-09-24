@@ -12,7 +12,7 @@ import data from '../assets/jsonDB/projects.json'
 const loading = ref(true);
 const projTiles = ref({});
 const popover = ref(null);
-GetProjects("Professional");
+setTimeout(function(){GetProjects("Professional")}, 250);
 
 onMounted(() => {
 	popover.value = new Popover(document.getElementById("toggleOldProjects"));
@@ -34,7 +34,7 @@ function toggleCollegeProjects() {
 			projTiles.value["College Projects"] = null;
 			loading.value = false;
 		} else {
-			GetProjects("College Project");
+			setTimeout(function(){GetProjects("College Project")}, 250);
 		}
 	}
 }
