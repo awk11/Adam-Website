@@ -90,7 +90,7 @@ onMounted(() => {
 						<li v-for="(v, k) in contacts" class="list-group-item" :key="k">
 							<h5>
 								{{ k }}:
-								<a v-if="v.includes('http')" :href="v" target = '_blank' rel='noopener'>{{ v }}</a>
+								<a v-if="v.includes('http')" :href="v" target = '_blank' rel='noopener'>{{ v.substring(12) }}</a>
 								<span v-else>{{ v }}</span>
 							</h5>
 						</li>

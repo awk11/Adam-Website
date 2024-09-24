@@ -34,7 +34,7 @@ function HidingModal() {
 			<div class="modal-content">
 				<div class="modal-body">
 					<div class="row">
-						<div class="my-auto" :class="{'col-6': !MediaZoomed, 'col-12': MediaZoomed}">
+						<div class="my-auto" :class="{'col-xl-6': !MediaZoomed, 'col-12': MediaZoomed}">
 							<div id="carouselControls" class="carousel slide">
 								<div class="carousel-inner" @click="MediaZoom">
 									<div v-for="(media, index) in modalDetails.mediaRefs" :key="index" class="carousel-item" :class="{ 'active': index === 0 }">
@@ -53,7 +53,7 @@ function HidingModal() {
 								</button>
 							</div>
 						</div>
-						<div class="col-6" v-if="!MediaZoomed">
+						<div class="col-xl-6" v-if="!MediaZoomed">
 							<h4 class="my-4">{{ modalDetails.name }}</h4>
 							<p v-html="modalDetails.description"></p>
 						</div>
