@@ -4,7 +4,7 @@
 			"name": "Booz Allen Hamllton / PAR Government",
 			"type": "Professional",
 			"index": 0,
-			"description": "As a Lead Software Engineer at Booz Allen Hamilton (and PAR Government before that until Booz Allen acquired it) since January 2020, I have contributed to and helped shape a variety of projects with a critical impact on both the company and its customers. These projects range in size from small internal tech demos to large-scale dozen-plus organization efforts. I have been and am actively responsible for building and maintaining a diverse range of codebases across each project I've been a part of, as well as leading and managing small teams from the conception phase to production. Project focuses have included topics such as AI, media forensics, simulation, and more. Across projects, I have worked all over the tech stack including front end UI/UX development for both web and mobile, code architecture design, API development, deployment, etc.<br /><br />For one such project which I can publicly speak about, I was a part of PAR's team for the DARPA Sail-On Program. This was a large research effort that focused on learning how various AIs understand and adapt to novelty and novel situations. In my work, I collaborated with a large variety of other organizations also involved in this project and contributed to work resulting in multiple papers. As the lead developer on my team, I was specifically responsible for managing several codebases and datasets used for testing AI systems built by and with multiple partner organizations. This work included API development, video and image manipulation, video game modification and development, and many other fields of interest. <br />More information about Sail-On can be found at <a href='https://www.darpa.mil/program/science-of-artificial-intelligence-and-learning-for-open-world-novelty' target = '_blank' rel='noopener'>darpa.mil/sail-on</a><br /><a href='https://arxiv.org/abs/2212.12141' target = '_blank' rel='noopener'>Published research paper can be found here.</a><br /><a href='https://github.com/PAR-Sail-On-backup' target = '_blank' rel='noopener'>Open Source code can be found here.</a>",
+			"description": "As a Lead Software Engineer at Booz Allen Hamilton (and PAR Government before that until Booz Allen acquired it) since January 2020, I have contributed to and helped shape a variety of projects with a critical impact on both the company and its customers. These projects range in size from small internal tech demos to large-scale dozen-plus organization efforts. I have been and am actively responsible for building and maintaining a diverse range of codebases across each project I've been a part of, as well as leading and managing small teams from the conception phase to production. I have been intimately involved in every step of a project's lifecycle from designing the code architecture and making UI mockups, to deploying codebases for customers to use. Project focuses have included topics such as AI, media forensics, simulation, and more. Across projects, I have worked all over the tech stack including front end UI/UX development for both web and mobile, code architecture design, API development, deployment, etc.<br /><br />For one such project which I can publicly speak about, I was a part of PAR's team for the DARPA Sail-On Program. This was a large research effort that focused on learning how various AIs understand and adapt to novelty and novel situations. In my work, I collaborated with a large variety of other organizations also involved in this project and contributed to work resulting in multiple papers. As the lead developer on my team, I was specifically responsible for managing several codebases and datasets used for testing AI systems built by and with multiple partner organizations. This work included API development, video and image manipulation, video game modification and development, and many other fields of interest. <br />More information about Sail-On can be found at <a href='https://www.darpa.mil/program/science-of-artificial-intelligence-and-learning-for-open-world-novelty' target = '_blank' rel='noopener'>darpa.mil/sail-on</a><br /><a href='https://arxiv.org/abs/2212.12141' target = '_blank' rel='noopener'>Published research paper can be found here.</a> (publication pending in <a href='https://www.jair.org/'>JAIR</a>)<br /><a href='https://github.com/PAR-Sail-On-backup' target = '_blank' rel='noopener'>Open Source code can be found here.</a>",
 			"tileImage": "MediaBucket/Tiles/pargov.png",
 			"hoverImage": "MediaBucket/Tiles/pargovTop.png",
 			"skillList": ["Full-Time", "Python", "JavaScript", "Vue", "React", "Kotlin", "JavaFX", "Java", "SQL", "Docker", "Git", "Leadership", "AI"],
@@ -190,11 +190,11 @@
 		},
 		{
 			"name": "Spider Web",
-			"type": "Dont Display",
-			"description": "This project was done in a team of 7 outside of any classes as a side project. In this game, you play as a spider who uses her web to get around the levels. This game was made using Unity. My role for this game mainly consisted of level design as well as asset management. In addition, I also did some programming in C# and implemented a few core environment features for the levels.  However, my involvement mainly consisted of a design role. <a href='https://github.com/LunaLovecraft/IMDHonorsContract-Fall2014' target='_blank' rel='noopener'>You can see the GitHub repo here</a>.",
+			"type": "College Project",
+			"description": "This project was done in college as part of a team. In the game, you play as a spider who uses her web to get around the levels. This game was made using Unity. My role mainly consisted of level design as well as asset management. In addition, I also did some programming in C# and implemented a few core environment features for the levels. <a href='https://github.com/LunaLovecraft/IMDHonorsContract-Fall2014' target='_blank' rel='noopener'>You can see the GitHub repo here</a>.",
 			"tileImage": "MediaBucket/Tiles/spiderweb.png",
 			"hoverImage": "MediaBucket/Tiles/spiderwebTop.png",
-			"skillList": ["Unity", "Level Design"],
+			"skillList": ["Unity", "C#", "Level Design"],
 			"mediaList": ["MediaBucket/Spider Web/spiderweb.mp4", "MediaBucket/Spider Web/spiderweb.png"]
 		},
 		{
@@ -215,24 +215,6 @@
 			"hoverImage": "MediaBucket/Tiles/lawnGnomeRageTop.png",
 			"skillList": ["Game Design"],
 			"mediaList": ["MediaBucket/Lawn Gnome Rage/lawnGnomeRage0.png", "MediaBucket/Lawn Gnome Rage/lawnGnomeRage1.png", "MediaBucket/Lawn Gnome Rage/lawnGnomeRage2.png", "MediaBucket/Lawn Gnome Rage/lawnGnomeRage3.png", "MediaBucket/Lawn Gnome Rage/lawnGnomeRage4.png", "MediaBucket/Lawn Gnome Rage/lawnGnomeRage5.png", "MediaBucket/Lawn Gnome Rage/lawnGnomeRage6.png"]
-		},
-		{
-			"name": "",
-			"type": "",
-			"description": "",
-			"tileImage": "MediaBucket/Tiles/.png",
-			"hoverImage": "MediaBucket/Tiles/Top.png",
-			"skillList": [""],
-			"mediaList": ["MediaBucket/", "MediaBucket/"]
-		},
-		{
-			"name": "",
-			"type": "",
-			"description": "",
-			"tileImage": "MediaBucket/Tiles/.png",
-			"hoverImage": "MediaBucket/Tiles/Top.png",
-			"skillList": [""],
-			"mediaList": ["MediaBucket/", "MediaBucket/"]
 		}
 	]
 }
