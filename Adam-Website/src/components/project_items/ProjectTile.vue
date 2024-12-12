@@ -7,32 +7,49 @@ import ProjectDetails from '../../scripts/projectDetails.js'
 import LoadSpinner from '../utility/LoadSpinner.vue';
 
 import Modal from 'bootstrap/js/dist/modal.js'
-import axios from 'axios'
-const props = defineProps({project: {type: Tile}});
+// import axios from 'axios'
+import data from '../../assets/jsonDB/projects.json'
+
+const props = defineProps({project: Tile});
 
 const loadingModal = ref(false);
 
 function ShowModal() {
 	loadingModal.value = true;
-	// Make REST call to get project details
-	axios.get('http://localhost:11001/projectData', {params: {name: props.project.name}})
-		.then(response => {
-			let detailsJson = new ProjectDetails(response.data);
-
-			//Create object with details and then add to the store
-			let projDetails = new ProjectDetails(detailsJson);
-			const store = ProjectStore();
-			store.setProjectModalData(projDetails);
-
-			// Open the modal
-			const projModal = new Modal('#onload');
-			projModal.show();
-			loadingModal.value = false;
-		})
-		.catch(error => {
-			console.error(error);
-			ErrorStore().SiteError();
+	setTimeout(function(){
+		let project = data["projects"].find(proj => proj.name === props.project.name);
+		let projDetails = new ProjectDetails({
+			"name": project["name"], 
+			"description": project["description"], 
+			"mediaRefs": project["mediaList"]
 		});
+		const store = ProjectStore();
+		store.setProjectModalData(projDetails);
+
+		// Open the modal
+		const projModal = new Modal('#onload');
+		projModal.show();
+		loadingModal.value = false;
+	}, 250)
+	// Make REST call to get project details
+	// axios.get('http://localhost:11001/projectData', {params: {name: props.project.name}})
+	// 	.then(response => {
+	// 		let detailsJson = new ProjectDetails(response.data);
+
+	// 		//Create object with details and then add to the store
+	// 		let projDetails = new ProjectDetails(detailsJson);
+	// 		const store = ProjectStore();
+	// 		store.setProjectModalData(projDetails);
+
+	// 		// Open the modal
+	// 		const projModal = new Modal('#onload');
+	// 		projModal.show();
+	// 		loadingModal.value = false;
+	// 	})
+	// 	.catch(error => {
+	// 		console.error(error);
+	// 		ErrorStore().SiteError();
+	// 	});
 }
 
 </script>

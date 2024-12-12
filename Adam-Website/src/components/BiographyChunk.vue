@@ -1,8 +1,10 @@
 <script setup>
-import { ref} from 'vue';
-import axios from 'axios'
-import { ErrorStore } from '../stores/store';
+import { ref, onMounted } from 'vue';
+// import axios from 'axios'
+// import { ErrorStore } from '../stores/store';
 import LoadSpinner from './utility/LoadSpinner.vue';
+
+import data from '../assets/jsonDB/about.json'
 
 const loading = ref(true);
 const bioBlurb = ref("");
@@ -11,20 +13,31 @@ const languages = ref([]);
 const software = ref([]);
 const contacts = ref({});
 
-axios.get("http://localhost:11001/getBio")
-	.then(response => {
-		let data = response.data
+onMounted(() => {
+	setTimeout(function(){
 		bioBlurb.value = data["bio"];
 		interests.value = data["interests"];
 		languages.value = data["langs"];
 		software.value = data["software"];
 		contacts.value = data["contacts"];
 		loading.value = false;
-	})
-	.catch(error => {
-		console.error(error);
-		ErrorStore().SiteError();
-	});
+	}, 250)
+})
+
+// axios.get("http://localhost:11001/getBio")
+// 	.then(response => {
+// 		let data = response.data
+// 		bioBlurb.value = data["bio"];
+// 		interests.value = data["interests"];
+// 		languages.value = data["langs"];
+// 		software.value = data["software"];
+// 		contacts.value = data["contacts"];
+// 		loading.value = false;
+// 	})
+// 	.catch(error => {
+// 		console.error(error);
+// 		ErrorStore().SiteError();
+// 	});
 
 </script>
 
@@ -45,7 +58,7 @@ axios.get("http://localhost:11001/getBio")
 					<h4>Interested Fields</h4>
 					<LoadSpinner v-if="loading" :classes="'spinner-6 m-5 d-flex justify-content-left'" />
 					<ul v-else class="list-group">
-						<li v-for="i in interests" class="list-group-item"  :key="i"><h5>{{ i }}</h5></li>
+						<li v-for="i in interests" class="list-group-item" :key="i"><h5>{{ i }}</h5></li>
 					</ul>
 				</div>
 				<div class="col-lg-5 col-md-6 col-sm-12">
@@ -77,7 +90,7 @@ axios.get("http://localhost:11001/getBio")
 						<li v-for="(v, k) in contacts" class="list-group-item" :key="k">
 							<h5>
 								{{ k }}:
-								<a v-if="v.includes('http')" :href="v" target = '_blank' rel='noopener'>{{ v }}</a>
+								<a v-if="v.includes('http')" :href="v" target = '_blank' rel='noopener'>{{ v.substring(12) }}</a>
 								<span v-else>{{ v }}</span>
 							</h5>
 						</li>

@@ -9,14 +9,11 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
-    {
-      path: '/editor',
-      name: 'editor',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/EditView.vue')
-    }, 
+    // {
+    //   path: '/editor',
+    //   name: 'editor',
+    //   component: () => import('../views/EditView.vue')
+    // }, 
     {
       path: '/:pathMatch(.*)*', 
       name: '404',

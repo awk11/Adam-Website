@@ -1,21 +1,27 @@
 <script setup>
 import { ref } from 'vue';
-import { ErrorStore } from '../stores/store';
-import axios from 'axios'
+// import { ErrorStore } from '../stores/store';
+// import axios from 'axios'
 import LoadSpinner from './utility/LoadSpinner.vue';
+
+import data from '../assets/jsonDB/about.json'
 
 const loading = ref(true);
 const resumeUrl = ref("");
+setTimeout(function() {
+	resumeUrl.value = data["resumeUrl"];
+	loading.value = false;
+}, 250)
 
-axios.get("http://localhost:11001/getResume")
-	.then(response => {
-		resumeUrl.value = response.data["resumeUrl"];
-		loading.value = false;
-	})
-	.catch(error => {
-		console.error(error);
-		ErrorStore().SiteError();
-	});
+// axios.get("http://localhost:11001/getResume")
+// 	.then(response => {
+// 		resumeUrl.value = response.data["resumeUrl"];
+// 		loading.value = false;
+// 	})
+// 	.catch(error => {
+// 		console.error(error);
+// 		ErrorStore().SiteError();
+// 	});
 
 </script>
 
