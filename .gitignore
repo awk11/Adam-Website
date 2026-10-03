@@ -156,3 +156,5 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+._*
